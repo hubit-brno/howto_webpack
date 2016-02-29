@@ -3,3 +3,5 @@ let hello = (who) => {
 }
 
 hello('hubits');
+
+module.hot.accept();

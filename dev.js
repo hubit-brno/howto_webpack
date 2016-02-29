@@ -1,18 +1,25 @@
 var browserSync = require('browser-sync');
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
+var webpackHotMiddleware = require('webpack-hot-middleware');
 
 var bundler = webpack({
 	debug: true,
 	devtool: 'source-map',
 	entry: [
-		'./src/index.es6'
+		'./src/index.es6',
+		'webpack-hot-middleware/client'
 	],
 	output: {
 		filename: 'bundle.js',
 		publicPath: '',
 		path: __dirname + '/dist'
 	},
+	plugins: [
+		new webpack.optimize.OccurenceOrderPlugin(),
+		new webpack.HotModuleReplacementPlugin(),
+		new webpack.NoErrorsPlugin()
+	],
 	module: {
 		loaders: [
 			{
@@ -29,7 +36,8 @@ browserSync({
 	server: {
 		baseDir: 'src',
 		middleware: [
-			webpackDevMiddleware(bundler)
+			webpackDevMiddleware(bundler),
+			webpackHotMiddleware(bundler)
 		]
 	},
 	files: [
