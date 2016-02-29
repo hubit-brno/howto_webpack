@@ -1,0 +1,16 @@
+{
+  "name": "howto_webpack",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "dev": "node dev.js"
+  },
+  "devDependencies": {
+    "babel-core": "6.5.2",
+    "babel-loader": "6.2.4",
+    "babel-preset-es2015": "6.5.0",
+    "browser-sync": "2.11.1",
+    "webpack": "1.12.14",
+    "webpack-dev-middleware": "1.5.1"
+  }
+}
