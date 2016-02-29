@@ -1,0 +1,1 @@
+export const SELECT_DETAIL = 'SELECT_DETAIL';
